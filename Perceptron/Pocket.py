@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import time
 
 def Data_error(w:np, DataLoader:DataLoader)->int:
-    return sum(np.sign(np.dot(DataLoader.data,w)) != DataLoader.label)
+    return (np.sign(np.dot(DataLoader.data,w)) != DataLoader.label).sum() # count True
 
 def pocket(DataLoader: DataLoader) -> np.ndarray:
     """

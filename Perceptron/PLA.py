@@ -69,7 +69,7 @@ def main(args):
     plt.plot(x, y2, 'y', label='split line', linewidth='1')
     plt.legend()
     plt.show()
-    plt.savefig(f"Pocket_{os.path.splitext(args.path)[0]}.png")
+    plt.savefig(f"PLA_{os.path.splitext(args.path)[0]}.png")
 
 
 if __name__ == '__main__':

@@ -34,7 +34,6 @@ def pocket(DataLoader: DataLoader) -> np.ndarray:
 
             x = DataLoader.data[i]
             y = DataLoader.label[i]
-            iterations += 1
             if np.sign(np.dot(weight_matrix,x)) != y:
                 tmp_weight_matrix = weight_matrix+y*x
                 weight_error.append((tmp_weight_matrix,Data_error(tmp_weight_matrix,DataLoader))) 
@@ -44,6 +43,7 @@ def pocket(DataLoader: DataLoader) -> np.ndarray:
                 weight_matrix = new_weight_matrix
                 weight_change = True
         weight_error = [(weight_matrix,error_count)]
+        iterations += 1
         if not weight_change:
             break
     ############ END ############
@@ -51,6 +51,7 @@ def pocket(DataLoader: DataLoader) -> np.ndarray:
     print("ex time = %f" % (e-s))
     print("iterations: %d"% iterations)
     print(f"weight_matrix: {weight_matrix}")
+    print(f"error points: {error_count}")
     return weight_matrix
 
 

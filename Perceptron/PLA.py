@@ -20,12 +20,14 @@ def PLA(DataLoader: DataLoader) -> np.ndarray:
     np.set_printoptions(suppress=True)
     n = len(DataLoader.data)
     random_index = np.random.permutation(n)
+    DataLoader.data = [DataLoader.data[i] for i in random_index]
+    DataLoader.label = [DataLoader.label[i] for i in random_index]
     iterations = 0
     while True:
         mistake = False
         for i in range(n):
-            x = np.array(DataLoader.data[random_index[i]])
-            y = DataLoader.label[random_index[i]]
+            x = np.array(DataLoader.data[i])
+            y = DataLoader.label[i]
             iterations += 1
             if np.sign(np.dot(weight_matrix,x)) != y:
                 weight_matrix += y * x

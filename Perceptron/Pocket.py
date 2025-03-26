@@ -52,6 +52,7 @@ def pocket(DataLoader: DataLoader) -> np.ndarray:
     print("iterations: %d"% iterations)
     print(f"weight_matrix: {weight_matrix}")
     print(f"error points: {error_count}")
+    print(f"correct point: {len(DataLoader.data) - Data_error(weight_matrix,DataLoader)}")
     return weight_matrix
 
 

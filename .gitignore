@@ -5,3 +5,4 @@ CNN_Plant_Seedling_Classification/*.txt
 CNN_Plant_Seedling_Classification/venv/*
 Perceptron/*.txt
 Perceptron/*.png
+**/*.txt

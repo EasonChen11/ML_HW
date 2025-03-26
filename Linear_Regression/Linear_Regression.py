@@ -13,13 +13,15 @@ def Linear_Regression(DataLoader: DataLoader):
     """
     weights = np.zeros(2)
     Ein = 0
+    DataLoader.data = np.array(DataLoader.data)
     ############ START ##########
-    x = np.matrix(DataLoader.data)[:,0].transpose()
+    x = np.array([[xi, 1] for xi in DataLoader.data[:,0]])
     xt = x.transpose()
-    y = np.matrix(DataLoader.data)[:,1].transpose()
-    weights = np.linalg.inv(xt*x)
-    weights = weights*xt*y
-    print(weights)
+    y = np.array(DataLoader.data)[:,1]
+    # print(x.shape,xt.shape,y.shape)
+    weights = np.linalg.inv(np.dot(xt,x))
+    weights = np.dot(weights,xt)
+    weights = np.dot(weights,y)
     ############ END ############
     return weights, Ein
 

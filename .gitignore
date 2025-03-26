@@ -1,8 +1,5 @@
 **/__pycache__
 CNN_Plant_Seedling_Classification/plant_seedlings_classification/*
-CNN_Plant_Seedling_Classification/*.png
-CNN_Plant_Seedling_Classification/*.txt
 CNN_Plant_Seedling_Classification/venv/*
-Perceptron/*.txt
-Perceptron/*.png
 **/*.txt
+**/*.png

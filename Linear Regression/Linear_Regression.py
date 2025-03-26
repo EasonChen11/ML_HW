@@ -14,7 +14,12 @@ def Linear_Regression(DataLoader: DataLoader):
     weights = np.zeros(2)
     Ein = 0
     ############ START ##########
-
+    x = np.matrix(DataLoader.data)[:,0].transpose()
+    xt = x.transpose()
+    y = np.matrix(DataLoader.data)[:,1].transpose()
+    weights = np.linalg.inv(xt*x)
+    weights = weights*xt*y
+    print(weights)
     ############ END ############
     return weights, Ein
 
@@ -40,10 +45,11 @@ def main(args):
 
     x = np.linspace(-100, 100, 10)
     # This is your regression line
-    y = weights[1]*x + weights[0]
+    y = weights[0]*x + weights[1]
     plt.plot(x, y, 'g', label='regression line', linewidth='1')
     plt.legend()
     plt.show()
+    plt.savefig(f"LR_{os.path.splitext(args.path)[0]}.png")
 
 
 if __name__ == '__main__':

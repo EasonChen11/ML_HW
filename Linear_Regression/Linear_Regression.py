@@ -18,12 +18,19 @@ def Linear_Regression(DataLoader: DataLoader):
     x = np.array([[xi, 1] for xi in DataLoader.data[:,0]])
     xt = x.transpose()
     y = np.array(DataLoader.data)[:,1]
-    # print(x.shape,xt.shape,y.shape)
+    print(x.shape,xt.shape,y.shape)
     weights = np.linalg.inv(np.dot(xt,x))
     weights = np.dot(weights,xt)
     weights = np.dot(weights,y)
+
+    y_pred = np.dot(x,weights)
+    Ein = np.mean((y_pred - y) ** 2)
+    # GradientEin = 2/N(x^t . x . w - x^t . y)
+    GradientEin = np.mean(2 * np.dot(np.dot(xt,x),weights) - np.dot(xt,y))
+    print(f"Regression line: y = {weights[0]}x + {weights[1]}")
+    
     ############ END ############
-    return weights, Ein
+    return weights, Ein, GradientEin
 
 
 def main(args):
@@ -35,11 +42,11 @@ def main(args):
         exit()
 
     Loader = DataLoader(args.path)
-    weights, Ein = Linear_Regression(DataLoader=Loader)
+    weights, Ein, GradientEin = Linear_Regression(DataLoader=Loader)
 
     # This part is for plotting the graph
     plt.title(
-        'Linear Regression, Ein = %.2f' % (Ein))
+        'Linear Regression, Ein = %.2f, ∇Ein = %.2f' % (Ein,GradientEin))
     plt.xlim(-100, 100)
     plt.ylim(-100, 100)
     Data = np.array(Loader.data)

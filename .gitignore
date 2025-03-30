@@ -5,5 +5,5 @@ CNN_Plant_Seedling_Classification/venv/*
 **/*.png
 Loss_Function/data
 Loss_Function/result
-Loss_Function/weight
+Loss_Function/weights
 Loss_Function/models

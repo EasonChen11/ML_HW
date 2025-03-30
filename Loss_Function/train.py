@@ -30,6 +30,8 @@ model = model.to(device)
 # set optimizer and loss function
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9)
 criterion = nn.CrossEntropyLoss()
+# criterion = nn.MultiMarginLoss()
+# criterion = nn.NLLLoss()
 
 # train
 train_loss_list = list()
@@ -91,6 +93,9 @@ for epoch in range(epochs):
 # save the best weight
 torch.save(best_model_wts, weight_path)
 
+# print information of training
+print("\nTrain batch size: %d | Learning rate: %.6f" % (train_loader.batch_size, learning_rate))
+
 # plot the loss curve for training and validation
 print("\nFinished Training")
 
@@ -101,7 +106,7 @@ pd.DataFrame({
 plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
 plt.xlim(1,epoch+1)
 plt.xlabel("Epoch"),plt.ylabel("Loss")
-plt.savefig(os.path.join(base_path, "result", "Loss_curve"))
+plt.savefig(os.path.join(base_path, "result", f"Loss_curve_{epochs}_{train_loader.batch_size}_{int(learning_rate*1000)}_"))
 
 # plot the accuracy curve for training and validation
 pd.DataFrame({
@@ -111,5 +116,5 @@ pd.DataFrame({
 plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
 plt.xlim(1,epoch+1)
 plt.xlabel("Epoch"),plt.ylabel("Accuracy")
-plt.savefig(os.path.join(base_path, "result", "Training_accuracy"))
+plt.savefig(os.path.join(base_path, "result", f"Training_accuracy_{epochs}_{train_loader.batch_size}_{int(learning_rate*1000)}_"))
 

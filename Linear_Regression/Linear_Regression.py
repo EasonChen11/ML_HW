@@ -45,7 +45,7 @@ def main(args):
 
     # This part is for plotting the graph
     plt.title(
-        'Linear Regression, Ein = %.2f, W = [%.2f,%.2f]' % (Ein,weights[0],weights[1]))
+        'Linear Regression_%s, Ein = %.2f, W = [%.2f,%.2f]' % (os.path.splitext(args.path)[0],Ein,weights[0],weights[1]))
     plt.xlim(-100, 100)
     plt.ylim(-100, 100)
     Data = np.array(Loader.data)

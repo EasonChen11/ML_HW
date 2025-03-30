@@ -15,13 +15,15 @@ def Linear_Regression(DataLoader: DataLoader):
     Ein = 0
     DataLoader.data = np.array(DataLoader.data)
     ############ START ##########
+    # Data organization
     N = len(DataLoader.data)
     X = np.array([[xi, 1] for xi in DataLoader.data[:,0]])
     Y = np.array(DataLoader.data)[:,1]
-    # print(X.shape,X.T.shape,Y.shape)
+    # W calculation
     weights = np.linalg.inv(X.T @ X) @ X.T @ Y
+    # in-sample error calculation
     Ein = np.sum((X @ weights - Y) ** 2) / N
-    # GradientEin = 2/N(x^t . x . w - x^t . y)
+    # In-sample error gradient calculation, GradientEin = 2/N(x^t . x . w - x^t . y)
     GradientEin = 2 * (X.T @ X @ weights - X.T @ Y) / N
     print(f"Regression line: y = {weights[0]}x + {weights[1]}")
     print(f"In-sample error 𝐸𝑖𝑛 = {Ein}")

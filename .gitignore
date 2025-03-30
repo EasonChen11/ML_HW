@@ -3,3 +3,7 @@ CNN_Plant_Seedling_Classification/plant_seedlings_classification/*
 CNN_Plant_Seedling_Classification/venv/*
 **/*.txt
 **/*.png
+Loss_Function/data
+Loss_Function/result
+Loss_Function/weight
+Loss_Function/models

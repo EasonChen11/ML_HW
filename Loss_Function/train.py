@@ -106,7 +106,7 @@ pd.DataFrame({
 plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
 plt.xlim(1,epoch+1)
 plt.xlabel("Epoch"),plt.ylabel("Loss")
-plt.savefig(os.path.join(base_path, "result", f"Loss_curve_{epochs}_{train_loader.batch_size}_{int(learning_rate*1000)}_"))
+plt.savefig(os.path.join(base_path, "result", f"Loss_curve_{epochs}_{train_loader.batch_size}_{int(learning_rate*1000)}"))
 
 # plot the accuracy curve for training and validation
 pd.DataFrame({
@@ -116,5 +116,5 @@ pd.DataFrame({
 plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
 plt.xlim(1,epoch+1)
 plt.xlabel("Epoch"),plt.ylabel("Accuracy")
-plt.savefig(os.path.join(base_path, "result", f"Training_accuracy_{epochs}_{train_loader.batch_size}_{int(learning_rate*1000)}_"))
+plt.savefig(os.path.join(base_path, "result", f"Training_accuracy_{epochs}_{train_loader.batch_size}_{int(learning_rate*1000)}"))
 

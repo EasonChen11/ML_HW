@@ -2,7 +2,7 @@
 
 log_file="test_log.jsonl"
 
-epochs=(2 40 80)
+epochs=(20 40 80)
 batch_sizes=(8 16 32)
 learning_rates=(0.1 0.01 0.001)
 losses=(mm ce mm)

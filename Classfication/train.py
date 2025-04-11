@@ -59,7 +59,8 @@ for epoch in range(epochs):
     train_accuracy, valid_accuracy = 0.0, 0.0
 
     model.train()
-    for data, target in tqdm(train_loader, desc="Training"):
+    # for data, target in tqdm(train_loader, desc="Training"):
+    for data, target in train_loader:
         data, target = data.to(device), target.to(device)
 
         # forward + backward + optimize
@@ -79,7 +80,8 @@ for epoch in range(epochs):
 
     model.eval()
     with torch.no_grad():
-        for data, target in tqdm(valid_loader, desc="Validation"):
+        # for data, target in tqdm(valid_loader, desc="Validation"):
+        for data, target in valid_loader:
             data, target = data.to(device), target.to(device)
 
             output = model(data)

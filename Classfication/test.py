@@ -12,7 +12,6 @@ import json
 parser = argparse.ArgumentParser()
 parser.add_argument('--weight', type=str, required=True, help='Path to the weight file')
 parser.add_argument('--loss', type=str, default='ce', choices=['ce', 'mm'], help='Loss function: ce / mm')
-parser.add_argument('--log', type=str, default='test_log.jsonl', help='Path to JSONL log file')
 args = parser.parse_args()
 
 class_names = ['Black-grass', 'Charlock', 'Cleavers', 'Common Chickweed', 'Common wheat', 'Fat Hen', 'Loose Silky-bent', 'Maize', 'Scentless Mayweed', 'Shepherds Purse', 'Small-flowered Cranesbill', 'Sugar beet']
@@ -22,7 +21,8 @@ def predict_test_data(model, test_loader):
     predictions = []
 
     with torch.no_grad():
-        for images in tqdm(test_loader, desc="Predicting"):
+        # for images in tqdm(test_loader, desc="Predicting"):
+        for images in test_loader:
             images = images.to(device)
             outputs = model(images)
             _, predicted = torch.max(outputs, 1)

@@ -1,0 +1,120 @@
+{"config": "e2_bs16_lr0.1_lossce", "stage": "start"}
+Running with epochs=2, batch_size=16, lr=0.1, loss=ce
+
+Epoch: 1/2
+----------
+Training loss: 2.4352, validation loss: 2.4481
+Training accuracy: 0.1303, validation accuracy: 0.1242
+
+Epoch: 2/2
+----------
+Training loss: 2.4249, validation loss: 2.4524
+Training accuracy: 0.1245, validation accuracy: 0.1242
+
+Finished Training
+Predictions saved to /home/eason/MLclassHW/Classfication/predictions/predictions_e2_bs16_lr0.1_lossce.csv
+{"config": "e2_bs16_lr0.1_lossce", "stage": "end"}
+{"config": "e2_bs16_lr0.1_lossce", "stage": "start"}
+Running with epochs=2, batch_size=16, lr=0.1, loss=ce
+
+Epoch: 1/2
+----------
+Training loss: 2.4295, validation loss: 2.4493
+Training accuracy: 0.1295, validation accuracy: 0.1295
+
+Epoch: 2/2
+----------
+Training loss: 2.4253, validation loss: 2.4515
+Training accuracy: 0.1332, validation accuracy: 0.1295
+
+Finished Training
+\nRunning test with epochs=2, batch_size=16, lr=0.1, loss=ce
+Predictions saved to /home/eason/MLclassHW/Classfication/predictions/predictions_e2_bs16_lr0.1_lossce.csv
+{"config": "e2_bs16_lr0.1_lossce", "stage": "end"}
+{"config": "e2_bs16_lr0.1_lossce", "stage": "start"}
+Running with epochs=2, batch_size=16, lr=0.1, loss=ce
+
+Epoch: 1/2
+----------
+Traceback (most recent call last):
+  File "/home/eason/MLclassHW/Classfication/train.py", line 63, in <module>
+    for data, target in train_loader:
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
+    data = self._next_data()
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 764, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 50, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/dataset.py", line 420, in __getitems__
+    return [self.dataset[self.indices[idx]] for idx in indices]
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/dataset.py", line 420, in <listcomp>
+    return [self.dataset[self.indices[idx]] for idx in indices]
+  File "/home/eason/.local/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 247, in __getitem__
+    sample = self.transform(sample)
+  File "/home/eason/.local/lib/python3.10/site-packages/torchvision/transforms/transforms.py", line 95, in __call__
+    img = t(img)
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/eason/.local/lib/python3.10/site-packages/torchvision/transforms/transforms.py", line 1372, in forward
+    return F.rotate(img, angle, self.interpolation, self.expand, self.center, fill)
+  File "/home/eason/.local/lib/python3.10/site-packages/torchvision/transforms/functional.py", line 1121, in rotate
+    return F_pil.rotate(img, angle=angle, interpolation=pil_interpolation, expand=expand, center=center, fill=fill)
+  File "/home/eason/.local/lib/python3.10/site-packages/torchvision/transforms/_functional_pil.py", line 314, in rotate
+    return img.rotate(angle, interpolation, expand, center, **opts)
+  File "/home/eason/.local/lib/python3.10/site-packages/PIL/Image.py", line 2505, in rotate
+    return self.transform(
+  File "/home/eason/.local/lib/python3.10/site-packages/PIL/Image.py", line 2886, in transform
+    im.__transformer(
+  File "/home/eason/.local/lib/python3.10/site-packages/PIL/Image.py", line 2976, in __transformer
+    self.im.transform(box, image.im, method, data, resample, fill)
+KeyboardInterrupt
+{"config": "e2_bs16_lr0.1_lossce", "stage": "start"}
+
+Running with epochs=2, batch_size=16, lr=0.1, loss=ce
+
+Epoch: 1/2
+----------
+Traceback (most recent call last):
+  File "/home/eason/MLclassHW/Classfication/train.py", line 63, in <module>
+    for data, target in train_loader:
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
+    data = self._next_data()
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 764, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 50, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/dataset.py", line 420, in __getitems__
+    return [self.dataset[self.indices[idx]] for idx in indices]
+  File "/home/eason/.local/lib/python3.10/site-packages/torch/utils/data/dataset.py", line 420, in <listcomp>
+    return [self.dataset[self.indices[idx]] for idx in indices]
+  File "/home/eason/.local/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 245, in __getitem__
+    sample = self.loader(path)
+  File "/home/eason/.local/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 284, in default_loader
+    return pil_loader(path)
+  File "/home/eason/.local/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 264, in pil_loader
+    return img.convert("RGB")
+  File "/home/eason/.local/lib/python3.10/site-packages/PIL/Image.py", line 984, in convert
+    self.load()
+  File "/home/eason/.local/lib/python3.10/site-packages/PIL/ImageFile.py", line 300, in load
+    n, err_code = decoder.decode(b)
+KeyboardInterrupt
+{"config": "e2_bs16_lr0.1_lossce", "stage": "start"}
+Running with epochs=2, batch_size=16, lr=0.1, loss=ce
+
+Epoch: 1/2
+----------
+Training loss: 2.4335, validation loss: 2.4223
+Training accuracy: 0.1334, validation accuracy: 0.1326
+
+Epoch: 2/2
+----------
+Training loss: 2.4330, validation loss: 2.4271
+Training accuracy: 0.1242, validation accuracy: 0.1326
+
+Finished Training
+
+Running test with epochs=2, batch_size=16, lr=0.1, loss=ce
+Predictions saved to /home/eason/MLclassHW/Classfication/predictions/predictions_e2_bs16_lr0.1_lossce.csv
+{"config": "e2_bs16_lr0.1_lossce", "stage": "end"}

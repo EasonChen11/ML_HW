@@ -2,10 +2,10 @@
 
 log_file="test_log.jsonl"
 
-epochs=(20 40 80)
-batch_sizes=(8 16 32)
+epochs=(20 40 80 160)
+batch_sizes=(16 32)
 learning_rates=(0.1 0.01 0.001)
-losses=(mm ce mm)
+losses=(ce mm)
 
 for epoch in "${epochs[@]}"; do
   for bs in "${batch_sizes[@]}"; do

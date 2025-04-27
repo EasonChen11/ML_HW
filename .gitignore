@@ -11,3 +11,5 @@ Loss_Function/models
 Classfication/plant-seedlings-classification
 Classfication/weights
 Classfication/result
+Classfication/predictions
+Classfication/*.jsonl

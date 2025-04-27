@@ -1,15 +1,12 @@
 #!/bin/bash
+# 相對路徑
+base_dir=$(dirname "$0")
+log_file="${base_dir}/3model_session_log.jsonl"
 
-log_file="test_log.jsonl"
-
-epochs=(20 40 80 160)
-batch_sizes=(16 32)
-learning_rates=(0.1 0.01 0.001)
+epochs=(2 40 80 160)
+batch_sizes=(32 64)
+learning_rates=(0.01 0.001)
 losses=(ce mm)
-# epochs=(2)
-# batch_sizes=(16)
-# learning_rates=(0.1)
-# losses=(ce)
 
 for epoch in "${epochs[@]}"; do
   for bs in "${batch_sizes[@]}"; do
@@ -23,8 +20,9 @@ for epoch in "${epochs[@]}"; do
         python3 train.py --epochs $epoch --bs $bs --lr $lr --loss $loss >> "$log_file" 2>&1
 
         echo -e "\nRunning test with epochs=$epoch, batch_size=$bs, lr=$lr, loss=$loss" | tee -a "$log_file"
-        python3 test.py --weight weight_${suffix}.pth --loss $loss >> "$log_file" 2>&1
+        python3 test.py --weight weight_${suffix}.pth >> "$log_file" 2>&1
 
+        # kaggle competitions submit -c plant-seedlings-classification -f predictions/predictions_${suffix}.csv -m "submit e${epoch}_bs${bs}_lr${lr}_loss${loss}"
         echo "{\"config\": \"$suffix\", \"stage\": \"end\"}" >> "$log_file"
       done
     done

@@ -11,7 +11,6 @@ import json
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--weight', type=str, required=True, help='Path to the weight file')
-parser.add_argument('--loss', type=str, default='ce', choices=['ce', 'mm'], help='Loss function: ce / mm')
 args = parser.parse_args()
 
 class_names = ['Black-grass', 'Charlock', 'Cleavers', 'Common Chickweed', 'Common wheat', 'Fat Hen', 'Loose Silky-bent', 'Maize', 'Scentless Mayweed', 'Shepherds Purse', 'Small-flowered Cranesbill', 'Sugar beet']

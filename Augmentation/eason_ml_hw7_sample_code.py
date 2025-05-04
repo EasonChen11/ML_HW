@@ -66,9 +66,25 @@ data_transforms = {
         'train': transforms.Compose([
             transforms.Resize((224,224) ),
             ########在此區塊填入圖像轉換方法########
-
+            # weak 1
+            # transforms.RandomAffine(translate=(0.1, 0.1), degrees=0),  # 平移
+            # # weak 2
+            # transforms.ColorJitter(brightness=0.3, contrast=0.3),  # 顏色變化
+            # # weak 3-1
+            # transforms.RandomRotation(10), # 隨機旋轉10度
+            # # weak 3-2
+            # transforms.RandomRotation(60), # 隨機旋轉60度
+            # # strong 1
+            transforms.RandomHorizontalFlip(),        # 1: 隨機水平翻轉
+            transforms.ColorJitter(brightness=0.2, contrast=0.2),   # 2: 隨機亮度
+            transforms.RandomRotation(10),            # 3: 隨機旋轉
+            transforms.RandomAffine(translate=(0.1, 0.1), degrees=0),  # 4: 平移
             ########################################
-            transforms.ToTensor(),
+            transforms.ToTensor(), # all need
+            ########################################
+            transforms.GaussianBlur(kernel_size=5, sigma=(0.1, 1.5)), # 5: 高斯模糊
+            transforms.RandomErasing(p=0.3),          # 6: 隨機遮擋
+            ########################################
         ]),
         'val': transforms.Compose([
             transforms.Resize((224,224) ),
@@ -167,6 +183,7 @@ def imshow(inp, title=None):
   plt.imshow(inp1)
   if title is not None:
       plt.title(title)
+  plt.savefig("tensor.jpg")
   plt.clf()
 
 

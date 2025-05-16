@@ -15,3 +15,4 @@ Classfication/predictions
 Classfication/*.jsonl
 Augmentation/dataset
 Augmentation/*.jpg
+LSTM_Stock_Prediction/*.csv

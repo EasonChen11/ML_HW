@@ -16,3 +16,8 @@ Classfication/*.jsonl
 Augmentation/dataset
 Augmentation/*.jpg
 LSTM_Stock_Prediction/*.csv
+DCGAN/CelebA/*
+**/*.m4a
+**/.env
+SVM/*.csv
+AdaBoosting/*.csv

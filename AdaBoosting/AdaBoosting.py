@@ -2,6 +2,11 @@ import pandas as pd
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--n_estimators", type=int, default=100)
+args = parser.parse_args()
 
 # 讀取 train 與 test 資料
 train_df = pd.read_csv("train.csv")
@@ -15,7 +20,7 @@ X_test = test_df.drop(columns=["Id", "Cover_Type"])
 y_test = test_df["Cover_Type"]
 
 # 模型參數
-n_estimators = 100
+n_estimators = args.n_estimators
 
 # 建立與訓練 AdaBoost 模型
 base_learner = DecisionTreeClassifier(max_depth=7)
@@ -34,4 +39,5 @@ y_pred_test = model.predict(X_test)
 train_acc = accuracy_score(y_train, y_pred_train)
 test_acc = accuracy_score(y_test, y_pred_test)
 
-print(train_acc, test_acc, n_estimators)
+# print(train_acc, test_acc, n_estimators)
+print(f"n_estimators: {n_estimators}, train_acc: {train_acc}, test_acc: {test_acc}")
